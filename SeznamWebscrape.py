@@ -17,9 +17,9 @@ with open("seznam.txt", "w") as file:
         if looking_for in one_article_text:
             #print(one_article_text)
             #print(one_article_link)
-            file.write("\n")
+            #file.write("\n")
             file.write(one_article_text)
-            file.write("\n")
+            #file.write("\n")
             file.write(one_article_link)
         
 
