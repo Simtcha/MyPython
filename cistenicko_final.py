@@ -101,8 +101,8 @@ data['junior_senior'] = list_sloupec_junior_senior_medior
 
 
 data["StartingPosition"]= data[['description', 'positionName']].apply(lambda x: x.str.contains((r'intern+[^a-z]|internship|student/ka|pro absolv[a-z]*|pro student[a-z]*'),regex=True, flags=re.IGNORECASE)).any(axis=1).astype(bool)
-data["PartTime"]= data[['description', 'positionName']].apply(lambda x: x.str.contains((r'part-time|part time|parttime|částečný?..úvazek|úvazek?.?..částečný|zkrácený|\bDPP\b|\bDPČ\b'),regex=True, flags=re.IGNORECASE)).any(axis=1).astype(bool)
-data["PartTime"]= data[['description', 'positionName']].apply(lambda x: x.str.contains((r'full-time|full time|fulltime|plný?..úvazek|úvazek?.?..plný|\bHPP\b'),regex=True, flags=re.IGNORECASE)).any(axis=1).astype(bool)
+data["PartTime"]= data[['description', 'positionName']].apply(lambda x: x.str.contains((r'part-time|part time|parttime|částečný úvazek|úvazek částečný|zkrácený|\bDPP\b|\bDPČ\b'),regex=True, flags=re.IGNORECASE)).any(axis=1).astype(bool)
+data["FullTime"]= data[['description', 'positionName']].apply(lambda x: x.str.contains((r'full-time|full time|fulltime|plný úvazek|úvazek plný|\bHPP\b'),regex=True, flags=re.IGNORECASE)).any(axis=1).astype(bool)
 data["HomeOffice/Remote"]= data[['description','positionName', 'location']].apply(lambda x: x.str.contains((r'home-office|home office|work from home|home-working|home working|remotely|remote+[^a-z]|remote friendly|práce na dálku|práce z domova|z domu|vzdálená práce|cafeoffice|Práce je možná z domova'), regex=True, flags=re.IGNORECASE)).any(axis=1).astype(bool)
 data["PositionKeyWords"] = data['positionName'].str.findall((r'data|analyst|datov[ý,á]|analyti[a-z,č]|analýza|[Dd]ata [Ss]cientist'), flags=re.IGNORECASE)
 data["PositionArea"] = data['positionName'].str.findall((r'HR|Finance|Financial|finan+[c,č]|Accounting|Pricing|nákladov|nákup|Inventory|Supply Chain|Salesforce|Sales|Purchase|Revenue|Marketing|Market|Change|PMO|Cloud|\bIT\b|Developer|vývoj[a-z]|\S?\s?DWH|Security|Web|Report|Reporting|ERP|Support|Engineering|SAP|Expense|Test|Sourcing|Softw|Software Development|\
